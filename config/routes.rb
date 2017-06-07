@@ -3,10 +3,17 @@ Rails.application.routes.draw do
 
   resources :jobs
 
+
+
   namespace :admin do
-    resources :jobs
+    resources :jobs do
+      member do
+        post :publish
+        post :hide
+      end
+    end
   end
-  
+
   root "jobs#index"
 
 end
